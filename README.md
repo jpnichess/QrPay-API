@@ -24,5 +24,4 @@ API REST responsável por validar QR codes, controlar status (válido/inválido)
 ## 💻 Execução
 
 Para testar a aplicação [acesse o site](https://pagamento-6bm8-git-main-joao-niches-projects.vercel.app) e simule um pagamento.
-Esse pagamento irá gerar um Qr Code de leitura única do produto escolhido. Para validação desse Qr Code acesse o [painel de administrador]
-(https://qr-reader-git-main-joao-niches-projects.vercel.app).
+Esse pagamento irá gerar um Qr Code de leitura única do produto escolhido. Para validação desse Qr Code acesse o [painel de administrador](https://qr-reader-git-main-joao-niches-projects.vercel.app).
