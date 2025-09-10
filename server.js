@@ -7,6 +7,7 @@ import QRCode from "qrcode";
 dotenv.config();
 
 // Inicializa Firebase usando variáveis de ambiente
+
 admin.initializeApp({
   credential: admin.credential.cert({
     projectId: process.env.FIREBASE_PROJECT_ID,
@@ -19,15 +20,11 @@ const db = admin.firestore();
 db.settings({ ignoreUndefinedProperties: true });
 
 // Inicializa Express
+
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-// ... resto do código igual
-
-// --------------------
-// Função: pagamento simulado
-// --------------------
 async function gerarPagamentoSimulado(product, user) {
   const id = Math.floor(Math.random() * 1000000);
   const EXPIRATION_MINUTES = 15;
@@ -47,9 +44,8 @@ async function gerarPagamentoSimulado(product, user) {
   };
 }
 
-// --------------------
 // Endpoint: criar pedido/pagamento
-// --------------------
+
 app.post("/pagar", async (req, res) => {
   try {
     const { product, email, uid, displayName } = req.body;
@@ -91,6 +87,9 @@ app.post("/pagar", async (req, res) => {
     res.status(500).json({ error: "Erro ao gerar pagamento simulado" });
   }
 });
+
+// Endpoint: Simular pedido/pagamento
+
 app.post("/simular-pagamento", async (req, res) => {
   try {
     const { docId } = req.body;
@@ -134,9 +133,8 @@ app.post("/simular-pagamento", async (req, res) => {
   }
 });
 
-// --------------------
 // Inicializa servidor
-// --------------------
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
